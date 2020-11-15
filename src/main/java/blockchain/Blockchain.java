@@ -2,7 +2,7 @@ package blockchain;
 
 public class Blockchain {
 
-    public static int difficulty = 2;
+    public static int difficulty = 3;
 
     public static void main(String[] args) {
 

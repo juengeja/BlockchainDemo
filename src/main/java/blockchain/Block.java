@@ -17,23 +17,25 @@ public class Block {
         this.hash = calculateHash(); // Wichtig: Muss nach den anderen Werten gesetzt werden!
     }
     public String calculateHash() {
-        return Hashing.hashSha256(previousHash + data + nonce);
+        return Hashing.hashSha256(previousHash + timeStamp + data + nonce);
     }
     public void mineBlock(int difficulty){
         boolean mined = false;
         String ideal = String.format("%0" + difficulty + "d", 0);
+        String part;
         //System.out.println(ideal);
 
         while(!mined){
             nonce ++;
-            System.out.println(nonce);
+            //System.out.println(nonce);
             hash = calculateHash();
-            System.out.println(hash);
-            String part = hash.substring(0, difficulty);
-            System.out.println(part);
+            //System.out.println(hash);
+            part = hash.substring(0, difficulty);
+            //System.out.println(part);
 
-            if(part == ideal){
+            if(part.equals(ideal)){
                 mined = true;
+
             }
         }
     }
