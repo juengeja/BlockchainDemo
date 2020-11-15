@@ -1,0 +1,5 @@
+blockchain\Hashing.class
+blockchain\Block.class
+blockchain\Blockchain.class
+hashing\HashingSha256Example.class
+hashing\HashingSha256Example2.class

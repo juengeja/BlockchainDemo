@@ -5,9 +5,9 @@ public class Block {
 
     public String hash;
     public String previousHash;
-    private String data;
+    private String data; // Hier beispielhaft nur Strings
     private long timeStamp; // Als Summe der Millisekunden seit 1/1/1970.
-    private int nonce;
+    private int nonce = 0;
 
     //Block Constructor.
     public Block(String data,String previousHash ) {
@@ -24,7 +24,7 @@ public class Block {
         String ideal = String.format("%0" + difficulty + "d", 0);
         String part;
         //System.out.println(ideal);
-
+        System.out.println("Mining new Block...");
         while(!mined){
             nonce ++;
             //System.out.println(nonce);
@@ -33,10 +33,14 @@ public class Block {
             part = hash.substring(0, difficulty);
             //System.out.println(part);
 
-            if(part.equals(ideal)){
+            if(part.equals(ideal)){ // Vergleichender Operator "==" nicht ausreichend
                 mined = true;
 
             }
         }
+    }
+
+    public int getNonce() {
+        return nonce;
     }
 }
